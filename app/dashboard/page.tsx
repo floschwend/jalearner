@@ -1,83 +1,104 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
-// Sample data structure (replace this with your actual data from the Excel file)
+// Updated data structure with romanji, hiragana, and kanji
 const wordPairs = [
-  { english: 'hello', japanese: 'konnichiwa' },
-  { english: 'goodbye', japanese: 'sayonara' },
-  { english: 'thank you', japanese: 'arigatou' },
-  { english: 'yes', japanese: 'hai' },
-  { english: 'no', japanese: 'iie' },
+  { english: 'hello', romanji: 'konnichiwa', hiragana: 'こんにちは', kanji: '今日は' },
+  { english: 'goodbye', romanji: 'sayonara', hiragana: 'さようなら', kanji: '左様なら' },
+  { english: 'thank you', romanji: 'arigatou', hiragana: 'ありがとう', kanji: '有難う' },
+  { english: 'yes', romanji: 'hai', hiragana: 'はい', kanji: 'はい' },
+  { english: 'no', romanji: 'iie', hiragana: 'いいえ', kanji: 'いいえ' },
   // Add more word pairs here
 ];
 
 export default function JapaneseWords() {
-  const [userInputs, setUserInputs] = useState<{ [key: string]: string }>(
-    Object.fromEntries(wordPairs.map(pair => [pair.english, '']))
+  const [answers, setAnswers] = useState<{ [key: string]: string | null }>(
+    Object.fromEntries(wordPairs.map(pair => [pair.english, null]))
   );
-  const [messages, setMessages] = useState<{ [key: string]: string }>(
-    Object.fromEntries(wordPairs.map(pair => [pair.english, '']))
-  );
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  const checkAnswer = (english: string, answer: string) => {
-    const correctJapanese = wordPairs.find(word => word.english === english)?.japanese;
-    if (answer.toLowerCase() === correctJapanese?.toLowerCase()) {
-      setMessages(prev => ({ ...prev, [english]: 'Correct!' }));
+  const handleSelection = (english: string, romanji: string) => {
+    setAnswers(prev => ({ ...prev, [english]: romanji }));
+    setOpenDropdown(null);
+  };
+
+  const toggleDropdown = (english: string) => {
+    setOpenDropdown(prev => prev === english ? null : english);
+  };
+
+  const checkAnswer = (english: string): string => {
+    const correctRomanji = wordPairs.find(word => word.english === english)?.romanji;
+    const userAnswer = answers[english];
+    if (!userAnswer) return '';
+    if (userAnswer.toLowerCase() === correctRomanji?.toLowerCase()) {
+      return 'Correct!';
     } else {
-      setMessages(prev => ({ ...prev, [english]: `Incorrect. The correct answer is "${correctJapanese}".` }));
+      return `Incorrect. The correct answer is "${correctRomanji}".`;
     }
   };
 
-  const handleInputChange = (english: string, value: string) => {
-    setUserInputs(prev => ({ ...prev, [english]: value }));
-    checkAnswer(english, value);
-  };
-
   return (
-    <Card className="w-full">
-      <CardContent>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>English</TableHead>
-              <TableHead>Japanese</TableHead>
-              <TableHead>Result</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {wordPairs.map((word) => (
-              <TableRow key={word.english}>
-                <TableCell>{word.english}</TableCell>
-                <TableCell>
-                  <Select onValueChange={(value) => handleInputChange(word.english, value)}>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select Japanese word" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {wordPairs.map((pair) => (
-                        <SelectItem key={pair.japanese} value={pair.japanese}>
-                          {pair.japanese}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </TableCell>
-                <TableCell>
-                  {messages[word.english] && (
-                    <span className={messages[word.english].startsWith('Correct') ? 'text-green-600' : 'text-red-600'}>
-                      {messages[word.english]}
-                    </span>
+    <div className="p-4">
+      <table className="w-full border-collapse border border-gray-300">
+        <thead>
+          <tr>
+            <th className="border border-gray-300 p-2">English</th>
+            <th className="border border-gray-300 p-2">Japanese</th>
+            <th className="border border-gray-300 p-2">Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          {wordPairs.map((word) => (
+            <tr key={word.english}>
+              <td className="border border-gray-300 p-2">{word.english}</td>
+              <td className="border border-gray-300 p-2">
+                <div className="relative">
+                  <button
+                    className="w-full text-left bg-white border border-gray-300 p-2 rounded"
+                    onClick={() => toggleDropdown(word.english)}
+                  >
+                    {answers[word.english] || "Select Japanese word"}
+                  </button>
+                  {openDropdown === word.english && (
+                    <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr>
+                            <th className="px-2 py-1 font-semibold text-left">Romanji</th>
+                            <th className="px-2 py-1 font-semibold text-left">Hiragana</th>
+                            <th className="px-2 py-1 font-semibold text-left">Kanji</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {wordPairs.map((pair) => (
+                            <tr
+                              key={pair.romanji}
+                              className="hover:bg-gray-100 cursor-pointer"
+                              onClick={() => handleSelection(word.english, pair.romanji)}
+                            >
+                              <td className="px-2 py-1">{pair.romanji}</td>
+                              <td className="px-2 py-1">{pair.hiragana}</td>
+                              <td className="px-2 py-1">{pair.kanji}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
                   )}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </CardContent>
-    </Card>
+                </div>
+              </td>
+              <td className="border border-gray-300 p-2">
+                {answers[word.english] && (
+                  <span className={checkAnswer(word.english).startsWith('Correct') ? 'text-green-600' : 'text-red-600'}>
+                    {checkAnswer(word.english)}
+                  </span>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
