@@ -43,9 +43,9 @@ export default function JapaneseWords() {
       <table className="w-full border-collapse border border-gray-300">
         <thead>
           <tr>
-            <th className="border border-gray-300 p-2">English</th>
-            <th className="border border-gray-300 p-2">Japanese</th>
-            <th className="border border-gray-300 p-2">Result</th>
+            <th className="border border-gray-300 p-2 w-1/5">English</th>
+            <th className="border border-gray-300 p-2 w-2/5">Japanese</th>
+            <th className="border border-gray-300 p-2 w-2/5">Result</th>
           </tr>
         </thead>
         <tbody>
@@ -65,9 +65,9 @@ export default function JapaneseWords() {
                       <table className="w-full text-sm">
                         <thead>
                           <tr>
-                            <th className="px-2 py-1 font-semibold text-left">Romanji</th>
-                            <th className="px-2 py-1 font-semibold text-left">Hiragana</th>
-                            <th className="px-2 py-1 font-semibold text-left">Kanji</th>
+                            <th className="px-2 py-1 font-semibold text-left w-1/3">Romanji</th>
+                            <th className="px-2 py-1 font-semibold text-left w-1/3">Hiragana</th>
+                            <th className="px-2 py-1 font-semibold text-left w-1/3">Kanji</th>
                           </tr>
                         </thead>
                         <tbody>
