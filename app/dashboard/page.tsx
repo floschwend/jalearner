@@ -1,21 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
+import { duolingoWords } from './duolingoWords';
+import { jlpt5Words } from './jlpt5Words';
 
-// Updated data structure with romanji, hiragana, and kanji
-const wordPairs = [
-  { english: 'hello', romanji: 'konnichiwa', hiragana: 'こんにちは', kanji: '今日は' },
-  { english: 'goodbye', romanji: 'sayonara', hiragana: 'さようなら', kanji: '左様なら' },
-  { english: 'thank you', romanji: 'arigatou', hiragana: 'ありがとう', kanji: '有難う' },
-  { english: 'yes', romanji: 'hai', hiragana: 'はい', kanji: 'はい' },
-  { english: 'no', romanji: 'iie', hiragana: 'いいえ', kanji: 'いいえ' },
-  // Add more word pairs here
-];
+const wordLists = {
+  "Duolingo": duolingoWords,
+  "JLPT-5": jlpt5Words,
+};
 
 export default function JapaneseWords() {
-  const [answers, setAnswers] = useState<{ [key: string]: string | null }>(
-    Object.fromEntries(wordPairs.map(pair => [pair.english, null]))
-  );
+  const [selectedList, setSelectedList] = useState<keyof typeof wordLists>("Duolingo");
+  const [answers, setAnswers] = useState<{ [key: string]: string | null }>({});
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const handleSelection = (english: string, romanji: string) => {
@@ -28,7 +24,7 @@ export default function JapaneseWords() {
   };
 
   const checkAnswer = (english: string): string => {
-    const correctRomanji = wordPairs.find(word => word.english === english)?.romanji;
+    const correctRomanji = wordLists[selectedList].find(word => word.english === english)?.romanji;
     const userAnswer = answers[english];
     if (!userAnswer) return '';
     if (userAnswer.toLowerCase() === correctRomanji?.toLowerCase()) {
@@ -40,6 +36,20 @@ export default function JapaneseWords() {
 
   return (
     <div className="p-4">
+      <div className="mb-4">
+        <label htmlFor="wordList" className="mr-2">Select Word List:</label>
+        <select
+          id="wordList"
+          value={selectedList}
+          onChange={(e) => setSelectedList(e.target.value as keyof typeof wordLists)}
+          className="border border-gray-300 rounded p-2"
+        >
+          {Object.keys(wordLists).map((list) => (
+            <option key={list} value={list}>{list}</option>
+          ))}
+        </select>
+      </div>
+
       <table className="w-full border-collapse border border-gray-300">
         <thead>
           <tr>
@@ -49,7 +59,7 @@ export default function JapaneseWords() {
           </tr>
         </thead>
         <tbody>
-          {wordPairs.map((word) => (
+          {wordLists[selectedList].map((word) => (
             <tr key={word.english}>
               <td className="border border-gray-300 p-2">{word.english}</td>
               <td className="border border-gray-300 p-2">
@@ -65,13 +75,13 @@ export default function JapaneseWords() {
                       <table className="w-full text-sm">
                         <thead>
                           <tr>
-                            <th className="px-2 py-1 font-semibold text-left w-1/3">Romanji</th>
-                            <th className="px-2 py-1 font-semibold text-left w-1/3">Hiragana</th>
-                            <th className="px-2 py-1 font-semibold text-left w-1/3">Kanji</th>
+                            <th className="px-2 py-1 font-semibold text-left w-1/4">Romanji</th>
+                            <th className="px-2 py-1 font-semibold text-left w-1/4">Hiragana</th>
+                            <th className="px-2 py-1 font-semibold text-left w-1/4">Kanji</th>
                           </tr>
                         </thead>
                         <tbody>
-                          {wordPairs.map((pair) => (
+                          {wordLists[selectedList].map((pair) => (
                             <tr
                               key={pair.romanji}
                               className="hover:bg-gray-100 cursor-pointer"
