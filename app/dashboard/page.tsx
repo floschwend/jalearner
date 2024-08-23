@@ -71,7 +71,7 @@ export default function JapaneseWords() {
                     {answers[word.english] || "Select Japanese word"}
                   </button>
                   {openDropdown === word.english && (
-                    <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg">
+                    <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg max-h-60 overflow-y-auto">
                       <table className="w-full text-sm">
                         <thead>
                           <tr>
@@ -81,7 +81,7 @@ export default function JapaneseWords() {
                           </tr>
                         </thead>
                         <tbody>
-                          {wordLists[selectedList].map((pair) => (
+                          {[...wordLists[selectedList]].sort((a, b) => a.romanji.localeCompare(b.romanji)).map((pair) => (
                             <tr
                               key={pair.romanji}
                               className="hover:bg-gray-100 cursor-pointer"
