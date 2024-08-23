@@ -13,14 +13,17 @@ export default function JapaneseWords() {
   const [selectedList, setSelectedList] = useState<keyof typeof wordLists>("Duolingo");
   const [answers, setAnswers] = useState<{ [key: string]: string | null }>({});
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleSelection = (english: string, romanji: string) => {
     setAnswers(prev => ({ ...prev, [english]: romanji }));
     setOpenDropdown(null);
+    setSearchTerm("");
   };
 
   const toggleDropdown = (english: string) => {
     setOpenDropdown(prev => prev === english ? null : english);
+    setSearchTerm("");
   };
 
   const checkAnswer = (english: string): string => {
@@ -32,6 +35,14 @@ export default function JapaneseWords() {
     } else {
       return `Incorrect. The correct answer is "${correctRomanji}".`;
     }
+  };
+
+  const filteredWords = (wordList: typeof duolingoWords) => {
+    return [...wordList].filter(word =>
+      word.romanji.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      word.hiragana.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (word.kanji && word.kanji.toLowerCase().includes(searchTerm.toLowerCase()))
+    ).sort((a, b) => a.romanji.localeCompare(b.romanji));
   };
 
   return (
@@ -72,6 +83,13 @@ export default function JapaneseWords() {
                   </button>
                   {openDropdown === word.english && (
                     <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg max-h-60 overflow-y-auto">
+                      <input
+                        type="text"
+                        placeholder="Search..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="w-full px-2 py-1 border-b border-gray-300"
+                      />
                       <table className="w-full text-sm">
                         <thead>
                           <tr>
@@ -81,7 +99,7 @@ export default function JapaneseWords() {
                           </tr>
                         </thead>
                         <tbody>
-                          {[...wordLists[selectedList]].sort((a, b) => a.romanji.localeCompare(b.romanji)).map((pair) => (
+                          {filteredWords(wordLists[selectedList]).map((pair) => (
                             <tr
                               key={pair.romanji}
                               className="hover:bg-gray-100 cursor-pointer"
