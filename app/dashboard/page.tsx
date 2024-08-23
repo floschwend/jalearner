@@ -1,10 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from '@/components/ui/command';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 // Sample data structure (replace this with your actual data from the Excel file)
 const wordPairs = [
@@ -17,7 +16,6 @@ const wordPairs = [
 ];
 
 export default function JapaneseWords() {
-  const [words, setWords] = useState(wordPairs);
   const [userInputs, setUserInputs] = useState<{ [key: string]: string }>(
     Object.fromEntries(wordPairs.map(pair => [pair.english, '']))
   );
@@ -26,7 +24,7 @@ export default function JapaneseWords() {
   );
 
   const checkAnswer = (english: string, answer: string) => {
-    const correctJapanese = words.find(word => word.english === english)?.japanese;
+    const correctJapanese = wordPairs.find(word => word.english === english)?.japanese;
     if (answer.toLowerCase() === correctJapanese?.toLowerCase()) {
       setMessages(prev => ({ ...prev, [english]: 'Correct!' }));
     } else {
@@ -51,33 +49,22 @@ export default function JapaneseWords() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {words.map((word) => (
+            {wordPairs.map((word) => (
               <TableRow key={word.english}>
                 <TableCell>{word.english}</TableCell>
                 <TableCell>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <button className="w-full border p-2 text-left">
-                        {userInputs[word.english] || 'Select Japanese word...'}
-                      </button>
-                    </PopoverTrigger>
-                    <PopoverContent className="p-0">
-                      <Command>
-                        <CommandInput placeholder="Type Japanese word..." />
-                        <CommandEmpty>No word found.</CommandEmpty>
-                        <CommandGroup>
-                          {words.map((pair) => (
-                            <CommandItem
-                              key={pair.japanese}
-                              onSelect={() => handleInputChange(word.english, pair.japanese)}
-                            >
-                              {pair.japanese}
-                            </CommandItem>
-                          ))}
-                        </CommandGroup>
-                      </Command>
-                    </PopoverContent>
-                  </Popover>
+                  <Select onValueChange={(value) => handleInputChange(word.english, value)}>
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select Japanese word" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {wordPairs.map((pair) => (
+                        <SelectItem key={pair.japanese} value={pair.japanese}>
+                          {pair.japanese}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </TableCell>
                 <TableCell>
                   {messages[word.english] && (
