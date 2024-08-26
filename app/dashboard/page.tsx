@@ -55,18 +55,20 @@ export default function JapaneseWords() {
         <table className="w-full border-collapse border">
           <thead>
             <tr>
-              <th className="border p-2 w-1/3">English</th>
-              <th className="border p-2 w-1/3">Japanese</th>
-              <th className="border p-2 w-1/3">Result</th>
+              <th className="border p-2">English</th>
+              <th className="border p-2">Japanese (Romanji)</th>
+              <th className="border p-2">Hiragana/Katakana</th>
+              <th className="border p-2">Kanji</th>
+              <th className="border p-2">Result</th>
             </tr>
           </thead>
           <tbody>
             {randomizedWords.map((word) => (
               <tr key={word.english}>
-                <td className="border p-2 w-1/3">
+                <td className="border p-2">
                   <div className="max-w-full overflow-hidden text-ellipsis">{word.english}</div>
                 </td>
-                <td className="border p-2 w-1/3">
+                <td className="border p-2">
                   <input
                     list={`options-${word.english}`}
                     type="text"
@@ -81,7 +83,17 @@ export default function JapaneseWords() {
                     ))}
                   </datalist>
                 </td>
-                <td className="border p-2 w-1/3">
+                <td className="border p-2">
+                  <div className="max-w-full overflow-hidden text-ellipsis">
+                    {answers[word.english] && wordLists[selectedList].find(w => w.romanji.toLowerCase() === answers[word.english].toLowerCase())?.hiragana_katakana}
+                  </div>
+                </td>
+                <td className="border p-2">
+                  <div className="max-w-full overflow-hidden text-ellipsis">
+                    {answers[word.english] && wordLists[selectedList].find(w => w.romanji.toLowerCase() === answers[word.english].toLowerCase())?.kanji}
+                  </div>
+                </td>
+                <td className="border p-2">
                   <div className="max-w-full overflow-hidden text-ellipsis">
                     {answers[word.english] && (
                       <span className={checkAnswer(word.english).startsWith('Correct') ? 'text-green-600' : 'text-red-600'}>
