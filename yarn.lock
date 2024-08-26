@@ -1204,7 +1204,7 @@
     "@babel/runtime" "^7.13.10"
     "@radix-ui/react-compose-refs" "1.0.1"
 
-"@radix-ui/react-slot@1.1.0":
+"@radix-ui/react-slot@1.1.0", "@radix-ui/react-slot@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-slot/-/react-slot-1.1.0.tgz#7c5e48c36ef5496d97b08f1357bb26ed7c714b84"
   integrity sha512-FUCf5XMfmW4dtYl69pdS4DbxKy8nj4M7SafBgPllysxmdachynNflAdp/gCsnYWNDnge6tI9onzMp5ARYc1KNw==
@@ -5452,6 +5452,11 @@ react-style-singleton@^2.2.1:
     get-nonce "^1.0.0"
     invariant "^2.2.4"
     tslib "^2.0.0"
+
+react-virtuoso@^4.10.1:
+  version "4.10.1"
+  resolved "https://registry.yarnpkg.com/react-virtuoso/-/react-virtuoso-4.10.1.tgz#868a40073e497777f49c052eb24be55171ce8639"
+  integrity sha512-vDBt9AarmCjPNshw3VxPXW355ZQKSO0p9vrAJ0pi04TB6aXk+qHWTu8NuaQ3ppcd/Ub1r5ryRA4fJ2QGuH0H0g==
 
 react@^18:
   version "18.3.1"
