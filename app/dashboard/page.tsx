@@ -31,7 +31,7 @@ export default function JapaneseWords() {
     if (userAnswer.toLowerCase() === correctRomanji?.toLowerCase()) {
       return 'Correct!';
     } else {
-      return `Incorrect. The correct answer is "${correctRomanji}".`;
+      return 'Incorrect';
     }
   }, [selectedList, answers]);
 
@@ -55,11 +55,11 @@ export default function JapaneseWords() {
         <table className="w-full border-collapse border">
           <thead>
             <tr>
-              <th className="border p-2">English</th>
-              <th className="border p-2">Japanese (Romanji)</th>
-              <th className="border p-2">Hiragana/Katakana</th>
-              <th className="border p-2">Kanji</th>
-              <th className="border p-2">Result</th>
+              <th className="border p-2" style={{ width: '20%' }}>English</th>
+              <th className="border p-2" style={{ width: '20%' }}>Japanese (Romanji)</th>
+              <th className="border p-2" style={{ width: '20%' }}>Hiragana/Katakana</th>
+              <th className="border p-2" style={{ width: '20%' }}>Kanji</th>
+              <th className="border p-2" style={{ width: '20%' }}>Result</th>
             </tr>
           </thead>
           <tbody>
