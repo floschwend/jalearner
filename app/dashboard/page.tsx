@@ -40,7 +40,7 @@ export default function JapaneseWords() {
   const filteredWords = (wordList: typeof duolingoWords) => {
     return [...wordList].filter(word =>
       word.romanji.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      word.hiragana.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      word.hiragana_katakana.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (word.kanji && word.kanji.toLowerCase().includes(searchTerm.toLowerCase()))
     ).sort((a, b) => a.romanji.localeCompare(b.romanji));
   };
@@ -94,7 +94,7 @@ export default function JapaneseWords() {
                         <thead>
                           <tr>
                             <th className="px-2 py-1 font-semibold text-left w-1/4">Romanji</th>
-                            <th className="px-2 py-1 font-semibold text-left w-1/4">Hiragana</th>
+                            <th className="px-2 py-1 font-semibold text-left w-1/4">Hiragana/Katakana</th>
                             <th className="px-2 py-1 font-semibold text-left w-1/4">Kanji</th>
                           </tr>
                         </thead>
@@ -106,7 +106,7 @@ export default function JapaneseWords() {
                               onClick={() => handleSelection(word.english, pair.romanji)}
                             >
                               <td className="px-2 py-1">{pair.romanji}</td>
-                              <td className="px-2 py-1">{pair.hiragana}</td>
+                              <td className="px-2 py-1">{pair.hiragana_katakana}</td>
                               <td className="px-2 py-1">{pair.kanji}</td>
                             </tr>
                           ))}
