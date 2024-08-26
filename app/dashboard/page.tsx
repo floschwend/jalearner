@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { duolingoWords } from './duolingoWords';
 import { jlpt5Words } from './jlpt5Words';
 
@@ -15,11 +15,32 @@ export default function JapaneseWords() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [randomizedWords, setRandomizedWords] = useState<typeof duolingoWords>([]);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const shuffled = [...wordLists[selectedList]].sort(() => Math.random() - 0.5);
     setRandomizedWords(shuffled);
   }, [selectedList]);
+
+  useEffect(() => {
+    if (openDropdown && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [openDropdown]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleSelection = (english: string, romanji: string) => {
     setAnswers(prev => ({ ...prev, [english]: romanji }));
@@ -27,10 +48,13 @@ export default function JapaneseWords() {
     setSearchTerm("");
   };
 
-  const toggleDropdown = (english: string) => {
+  const toggleDropdown = useCallback((english: string) => {
     setOpenDropdown(prev => prev === english ? null : english);
     setSearchTerm("");
-  };
+    if (searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, []);
 
   const checkAnswer = (english: string): string => {
     const correctRomanji = wordLists[selectedList].find(word => word.english === english)?.romanji;
@@ -88,8 +112,9 @@ export default function JapaneseWords() {
                     {answers[word.english] || "Select Japanese word"}
                   </button>
                   {openDropdown === word.english && (
-                    <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg max-h-60 overflow-y-auto">
+                    <div ref={dropdownRef} className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg max-h-60 overflow-y-auto">
                       <input
+                        ref={searchInputRef}
                         type="text"
                         placeholder="Search..."
                         value={searchTerm}
