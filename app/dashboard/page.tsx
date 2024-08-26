@@ -75,6 +75,41 @@ export default function JapaneseWords() {
     ).sort((a, b) => a.romanji.localeCompare(b.romanji));
   };
 
+  const handleKeyDown = useCallback((event: React.KeyboardEvent<HTMLDivElement>, english: string) => {
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      event.preventDefault();
+      const options = filteredWords(wordLists[selectedList]);
+      const currentIndex = options.findIndex(word => word.romanji === answers[english]);
+      const newIndex = event.key === 'ArrowDown'
+        ? (currentIndex + 1) % options.length
+        : (currentIndex - 1 + options.length) % options.length;
+      handleSelection(english, options[newIndex].romanji);
+    } else if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      if (openDropdown === english) {
+        const firstOption = filteredWords(wordLists[selectedList])[0];
+        if (firstOption) {
+          handleSelection(english, firstOption.romanji);
+        }
+      } else {
+        toggleDropdown(english);
+      }
+    } else if (event.key === 'Escape') {
+      setOpenDropdown(null);
+      setSearchTerm("");
+    }
+  }, [selectedList, answers, handleSelection, toggleDropdown, openDropdown]);
+
+  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>, english: string) => {
+    const newValue = e.target.value;
+    setSearchTerm(newValue);
+    if (!openDropdown) {
+      toggleDropdown(english);
+    }
+    // Update the answer immediately with the typed value
+    setAnswers(prev => ({ ...prev, [english]: newValue }));
+  }, [openDropdown, toggleDropdown]);
+
   return (
     <div className="p-4">
       <div className="mb-4">
@@ -105,44 +140,64 @@ export default function JapaneseWords() {
               <td className="border border-gray-300 p-2">{word.english}</td>
               <td className="border border-gray-300 p-2">
                 <div className="relative">
-                  <button
-                    className="w-full text-left bg-white border border-gray-300 p-2 rounded"
+                  <div
+                    className="w-full text-left bg-white border border-gray-300 p-2 rounded flex items-center"
                     onClick={() => toggleDropdown(word.english)}
+                    onKeyDown={(e) => handleKeyDown(e, word.english)}
+                    tabIndex={0}
+                    role="combobox"
+                    aria-haspopup="listbox"
+                    aria-expanded={openDropdown === word.english}
+                    aria-controls={`dropdown-${word.english}`}
                   >
-                    {answers[word.english] || "Select Japanese word"}
-                  </button>
+                    <input
+                      type="text"
+                      className="flex-grow outline-none"
+                      placeholder="Select or type Japanese word"
+                      value={openDropdown === word.english ? searchTerm : (answers[word.english] || "")}
+                      onChange={(e) => handleInputChange(e, word.english)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (!openDropdown) {
+                          toggleDropdown(word.english);
+                        }
+                      }}
+                    />
+                    <span className="ml-2">▼</span>
+                  </div>
                   {openDropdown === word.english && (
-                    <div ref={dropdownRef} className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg max-h-60 overflow-y-auto">
-                      <input
-                        ref={searchInputRef}
-                        type="text"
-                        placeholder="Search..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full px-2 py-1 border-b border-gray-300"
-                      />
-                      <table className="w-full text-sm">
-                        <thead>
-                          <tr>
-                            <th className="px-2 py-1 font-semibold text-left w-1/4">Romanji</th>
-                            <th className="px-2 py-1 font-semibold text-left w-1/4">Hiragana/Katakana</th>
-                            <th className="px-2 py-1 font-semibold text-left w-1/4">Kanji</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {filteredWords(wordLists[selectedList]).map((pair) => (
-                            <tr
-                              key={pair.romanji}
-                              className="hover:bg-gray-100 cursor-pointer"
+                    <div 
+                      id={`dropdown-${word.english}`}
+                      ref={dropdownRef}
+                      className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded shadow-lg max-h-60 overflow-y-auto"
+                      role="listbox"
+                    >
+                      <div className="grid grid-cols-3 gap-2 p-2 text-sm">
+                        <div className="font-semibold">Romanji</div>
+                        <div className="font-semibold">Hiragana/Katakana</div>
+                        <div className="font-semibold">Kanji</div>
+                        {filteredWords(wordLists[selectedList]).map((pair) => (
+                          <React.Fragment key={pair.romanji}>
+                            <div
+                              className="cursor-pointer hover:bg-gray-100 p-1"
                               onClick={() => handleSelection(word.english, pair.romanji)}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                  e.preventDefault();
+                                  handleSelection(word.english, pair.romanji);
+                                }
+                              }}
+                              role="option"
+                              aria-selected={answers[word.english] === pair.romanji}
+                              tabIndex={0}
                             >
-                              <td className="px-2 py-1">{pair.romanji}</td>
-                              <td className="px-2 py-1">{pair.hiragana_katakana}</td>
-                              <td className="px-2 py-1">{pair.kanji}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
+                              {pair.romanji}
+                            </div>
+                            <div className="p-1">{pair.hiragana_katakana}</div>
+                            <div className="p-1">{pair.kanji}</div>
+                          </React.Fragment>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
