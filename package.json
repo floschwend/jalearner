@@ -24,6 +24,7 @@
     "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",
+    "react-router-dom": "^6.26.1",
     "react-virtuoso": "^4.10.1",
     "shadcn-ui": "^0.8.0",
     "tailwind-merge": "^2.5.2",
