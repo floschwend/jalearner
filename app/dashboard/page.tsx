@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { duolingoWords } from './duolingoWords';
 import { jlpt5Words } from './jlpt5Words';
 
@@ -14,6 +14,12 @@ export default function JapaneseWords() {
   const [answers, setAnswers] = useState<{ [key: string]: string | null }>({});
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const [randomizedWords, setRandomizedWords] = useState<typeof duolingoWords>([]);
+
+  useEffect(() => {
+    const shuffled = [...wordLists[selectedList]].sort(() => Math.random() - 0.5);
+    setRandomizedWords(shuffled);
+  }, [selectedList]);
 
   const handleSelection = (english: string, romanji: string) => {
     setAnswers(prev => ({ ...prev, [english]: romanji }));
@@ -70,7 +76,7 @@ export default function JapaneseWords() {
           </tr>
         </thead>
         <tbody>
-          {wordLists[selectedList].map((word) => (
+          {randomizedWords.map((word) => (
             <tr key={word.english}>
               <td className="border border-gray-300 p-2">{word.english}</td>
               <td className="border border-gray-300 p-2">
