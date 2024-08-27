@@ -1,4 +1,4 @@
-import ConnectButton from '@/app/components/ConnectButton'
+import ConnectButton from '@/components/ui/ConnectButton'
 
 export default function Dashboard() {
   return (
