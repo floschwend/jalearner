@@ -160,12 +160,6 @@ export const duolingoWords = [
         "kanji": "大きい"
     },
     {
-        "english": "japan",
-        "romanji": "nihon",
-        "hiragana_katakana": "にほん",
-        "kanji": "日本"
-    },
-    {
         "english": "small",
         "romanji": "chiisai",
         "hiragana_katakana": "ちいさい",
