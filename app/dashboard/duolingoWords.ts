@@ -758,5 +758,126 @@ export const duolingoWords = [
         "romanji": "jeipoppu",
         "hiragana_katakana": "ジェイポップ",
         "kanji": "Jポップ"
+    },
+
+    {
+        "english": "sandwich",
+        "romanji": "sandoicchi",
+        "hiragana_katakana": "サンドイッチ",
+        "kanji": ""
+    },
+    {
+        "english": "bread",
+        "romanji": "pan",
+        "hiragana_katakana": "パン",
+        "kanji": ""
+    },
+    {
+        "english": "every day",
+        "romanji": "mainichi",
+        "hiragana_katakana": "まいにち",
+        "kanji": "毎日"
+    },
+    {
+        "english": "juice",
+        "romanji": "jūsu",
+        "hiragana_katakana": "ジュース",
+        "kanji": ""
+    },
+    {
+        "english": "every morning",
+        "romanji": "maiasa",
+        "hiragana_katakana": "まいあさ",
+        "kanji": "毎朝"
+    },
+    {
+        "english": "coffee",
+        "romanji": "kōhī",
+        "hiragana_katakana": "コーヒー",
+        "kanji": ""
+    },
+    {
+        "english": "he/she eats",
+        "romanji": "tabemasu",
+        "hiragana_katakana": "たべます",
+        "kanji": "食べます"
+    },
+    {
+        "english": "seven o'clock",
+        "romanji": "shichiji",
+        "hiragana_katakana": "しちじ",
+        "kanji": "七時"
+    },
+    {
+        "english": "breakfast",
+        "romanji": "asagohan",
+        "hiragana_katakana": "あさごはん",
+        "kanji": "朝ご飯"
+    },
+    {
+        "english": "eleven",
+        "romanji": "jūichi",
+        "hiragana_katakana": "じゅういち",
+        "kanji": "十一"
+    },
+    {
+        "english": "ten",
+        "romanji": "jū",
+        "hiragana_katakana": "じゅう",
+        "kanji": "十"
+    },
+    {
+        "english": "twelve",
+        "romanji": "jūni",
+        "hiragana_katakana": "じゅうに",
+        "kanji": "十二"
+    },
+    {
+        "english": "lunch",
+        "romanji": "hirugohan",
+        "hiragana_katakana": "ひるごはん",
+        "kanji": "昼ご飯"
+    },
+    {
+        "english": "boxed lunch",
+        "romanji": "bentō",
+        "hiragana_katakana": "べんとう",
+        "kanji": "弁当"
+    },
+    {
+        "english": "eight",
+        "romanji": "hachi",
+        "hiragana_katakana": "はち",
+        "kanji": "八"
+    },
+    {
+        "english": "thirty",
+        "romanji": "han",
+        "hiragana_katakana": "はん",
+        "kanji": "半"
+    },
+    {
+        "english": "nine o'clock",
+        "romanji": "kuji",
+        "hiragana_katakana": "くじ",
+        "kanji": "九時"
+    },
+    {
+        "english": "every night",
+        "romanji": "maiban",
+        "hiragana_katakana": "まいばん",
+        "kanji": "毎晩"
+    },
+    {
+        "english": "dinner",
+        "romanji": "bangohan",
+        "hiragana_katakana": "ばんごはん",
+        "kanji": "晩ご飯"
+    },
+    {
+        "english": "he/she drinks",
+        "romanji": "nomimasu",
+        "hiragana_katakana": "のみます",
+        "kanji": "飲みます"
     }
 ]
