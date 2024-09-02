@@ -424,7 +424,7 @@ export const duolingoWords = [
         "kanji": "N/A"
     },
     {
-        "english": "of (no)",
+        "english": "of (possessive pronoun)",
         "romanji": "no",
         "hiragana_katakana": "の",
         "kanji": "N/A"
@@ -496,7 +496,7 @@ export const duolingoWords = [
         "kanji": "日本"
     },
     {
-        "english": "city (toshi)",
+        "english": "city",
         "romanji": "toshi",
         "hiragana_katakana": "とし",
         "kanji": "都市"
@@ -526,7 +526,7 @@ export const duolingoWords = [
         "kanji": "N/A"
     },
     {
-        "english": "town (machi)",
+        "english": "town",
         "romanji": "machi",
         "hiragana_katakana": "まち",
         "kanji": "町"
@@ -730,7 +730,7 @@ export const duolingoWords = [
         "kanji": "雑誌"
     },
     {
-        "english": "he plays (sports)",
+        "english": "he does/plays (sports)",
         "romanji": "shimasu",
         "hiragana_katakana": "します",
         "kanji": "します"
