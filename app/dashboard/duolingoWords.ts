@@ -556,7 +556,7 @@ export const duolingoWords = [
         "kanji": "忙しい"
     },
     {
-        "english": "years old (sai)",
+        "english": "years old",
         "romanji": "sai",
         "hiragana_katakana": "さい",
         "kanji": "歳"
@@ -873,5 +873,41 @@ export const duolingoWords = [
         "romanji": "nomimasu",
         "hiragana_katakana": "のみます",
         "kanji": "飲みます"
+    },
+    {
+        "english": "he lives in Tokyo",
+        "romanji": "Tōkyō ni sundeimasu",
+        "hiragana_katakana": "とうきょうに すんでいます",
+        "kanji": "東京に住んでいます"
+    },
+    {
+        "english": "where do you live?",
+        "romanji": "Doko ni sundeimasu ka",
+        "hiragana_katakana": "どこに すんでいますか",
+        "kanji": "どこに住んでいますか"
+    },
+    {
+        "english": "it's about 2 o'clock",
+        "romanji": "ni-ji goro desu",
+        "hiragana_katakana": "にじごろです",
+        "kanji": "二時頃です"
+    },
+    {
+        "english": "at 2 o'clock",
+        "romanji": "ni-ji ni",
+        "hiragana_katakana": "にじに",
+        "kanji": "二時に"
+    },
+    {
+        "english": "he's from Tokyo",
+        "romanji": "Tōkyō shusshin desu",
+        "hiragana_katakana": "とうきょうしゅっしんです",
+        "kanji": "東京出身です"
+    },
+    {
+        "english": "where are you from?",
+        "romanji": "Shusshin wa doko desu ka",
+        "hiragana_katakana": "しゅっしんはどこですか",
+        "kanji": "出身はどこですか"
     }
 ]
