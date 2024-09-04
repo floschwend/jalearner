@@ -909,5 +909,77 @@ export const duolingoWords = [
         "romanji": "Shusshin wa doko desu ka",
         "hiragana_katakana": "しゅっしんはどこですか",
         "kanji": "出身はどこですか"
+    },
+    {
+        "english": "old (not new)",
+        "romanji": "furui",
+        "hiragana_katakana": "ふるい",
+        "kanji": "古い"
+    },
+    {
+        "english": "wallet",
+        "romanji": "saifu",
+        "hiragana_katakana": "さいふ",
+        "kanji": "財布"
+    },
+    {
+        "english": "hideous",
+        "romanji": "minikui",
+        "hiragana_katakana": "みにくい",
+        "kanji": "醜い"
+    },
+    {
+        "english": "clothes",
+        "romanji": "fuku",
+        "hiragana_katakana": "ふく",
+        "kanji": "服"
+    },
+    {
+        "english": "isn't it?",
+        "romanji": "desu ne",
+        "hiragana_katakana": "ですね",
+        "kanji": "ですね"
+    },
+    {
+        "english": "t-shirt",
+        "romanji": "tī shatsu",
+        "hiragana_katakana": "ティーシャツ",
+        "kanji": "Ｔシャツ"
+    },
+    {
+        "english": "new",
+        "romanji": "atarashii",
+        "hiragana_katakana": "あたらしい",
+        "kanji": "新しい"
+    },
+    {
+        "english": "skirt",
+        "romanji": "sukāto",
+        "hiragana_katakana": "スカート",
+        "kanji": "スカート"
+    },
+    {
+        "english": "dress",
+        "romanji": "doresu",
+        "hiragana_katakana": "ドレス",
+        "kanji": "ドレス"
+    },
+    {
+        "english": "good, well",
+        "romanji": "ii",
+        "hiragana_katakana": "いい",
+        "kanji": "いい"
+    },
+    {
+        "english": "blue",
+        "romanji": "ao",
+        "hiragana_katakana": "あお",
+        "kanji": "青"
+    },
+    {
+        "english": "that/those over there",
+        "romanji": "are",
+        "hiragana_katakana": "あれ",
+        "kanji": "あれ"
     }
 ]
