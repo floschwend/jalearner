@@ -4,6 +4,36 @@
 
 export const duolingoWords = [
     {
+        "english": "A is B [topic marking particle]",
+        "romanji": "A wa B des",
+        "hiragana_katakana": "は",
+        "kanji": ""
+    },
+    {
+        "english": "I like cake [grammatical subject particle: cake]",
+        "romanji": "Watashi wa kēki ga suki desu",
+        "hiragana_katakana": "わたしはケーキがすきです",
+        "kanji": "私はケーキが好きです"
+    },
+    {
+        "english": "Who eats cake? [question word is subject or part of it particle: who]",
+        "romanji": "Dare ga kēki o tabemasu ka?",
+        "hiragana_katakana": "だれがケーキをたべますか？",
+        "kanji": "誰がケーキを食べますか？"
+    },
+    {
+        "english": "I eat cake [grammatical object particle: cake]",
+        "romanji": "Watashi wa kēki o tabemasu",
+        "hiragana_katakana": "わたしはケーキをたべます",
+        "kanji": "私はケーキを食べます"
+    },
+    {
+        "english": "I'm also from Tokyo [particle replaces ga/wa/wo: I]",
+        "romanji": "Watashi mo Tōkyō shusshindesu",
+        "hiragana_katakana": "わたしもとうきょうしゅっしんです",
+        "kanji": "私も東京出身です"
+    },
+    {
         "english": "green tea",
         "romanji": "ocha",
         "hiragana_katakana": "おちゃ",
@@ -13,7 +43,7 @@ export const duolingoWords = [
         "english": "please",
         "romanji": "kudasai",
         "hiragana_katakana": "ください",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "sushi",
@@ -37,7 +67,7 @@ export const duolingoWords = [
         "english": "and",
         "romanji": "to",
         "hiragana_katakana": "と",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "doctor",
@@ -61,7 +91,7 @@ export const duolingoWords = [
         "english": "cool",
         "romanji": "kakkoii",
         "hiragana_katakana": "かっこいい",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "person",
@@ -79,19 +109,19 @@ export const duolingoWords = [
         "english": "hello",
         "romanji": "konnichiwa",
         "hiragana_katakana": "こんにちは",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "bye",
         "romanji": "jaane",
         "hiragana_katakana": "じゃあね",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "curry",
         "romanji": "karee",
         "hiragana_katakana": "カレー",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "delicious",
@@ -103,61 +133,67 @@ export const duolingoWords = [
         "english": "ramen",
         "romanji": "raamen",
         "hiragana_katakana": "ラーメン",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
-        "english": "this (as subject)",
+        "english": "this [as subject]",
         "romanji": "kore",
         "hiragana_katakana": "これ",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
-        "english": "these (as subject)",
+        "english": "these [as subject]",
         "romanji": "korera",
         "hiragana_katakana": "これら",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
-        "english": "that (as subject)",
+        "english": "that [as subject]",
         "romanji": "sore",
         "hiragana_katakana": "それ",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
-        "english": "those (as subject)",
+        "english": "those [as subject]",
         "romanji": "sorera",
         "hiragana_katakana": "それら",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "pizza",
         "romanji": "piza",
         "hiragana_katakana": "ピザ",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "cake",
         "romanji": "keeki",
         "hiragana_katakana": "ケーキ",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "yes",
         "romanji": "hai",
         "hiragana_katakana": "はい",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "no",
         "romanji": "iie",
         "hiragana_katakana": "いいえ",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "big",
         "romanji": "ookii",
         "hiragana_katakana": "おおきい",
         "kanji": "大きい"
+    },
+    {
+        "english": "japan",
+        "romanji": "nihon",
+        "hiragana_katakana": "にほん",
+        "kanji": "日本"
     },
     {
         "english": "small",
@@ -169,13 +205,13 @@ export const duolingoWords = [
         "english": "america",
         "romanji": "amerika",
         "hiragana_katakana": "アメリカ",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "canada",
         "romanji": "kanada",
         "hiragana_katakana": "カナダ",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "american",
@@ -199,13 +235,13 @@ export const duolingoWords = [
         "english": "Britain",
         "romanji": "igirisu",
         "hiragana_katakana": "イギリス",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "Brazil",
         "romanji": "burajiru",
         "hiragana_katakana": "ブラジル",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "British",
@@ -223,19 +259,19 @@ export const duolingoWords = [
         "english": "where",
         "romanji": "doko",
         "hiragana_katakana": "どこ",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "convenience store",
         "romanji": "konbini",
         "hiragana_katakana": "コンビニ",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "hotel",
         "romanji": "hoteru",
         "hiragana_katakana": "ホテル",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "bus stop",
@@ -247,13 +283,13 @@ export const duolingoWords = [
         "english": "here",
         "romanji": "koko",
         "hiragana_katakana": "ここ",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "department store",
         "romanji": "depāto",
         "hiragana_katakana": "デパート",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "train station",
@@ -271,7 +307,7 @@ export const duolingoWords = [
         "english": "there",
         "romanji": "soko",
         "hiragana_katakana": "そこ",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "hat",
@@ -289,7 +325,7 @@ export const duolingoWords = [
         "english": "coat",
         "romanji": "kooto",
         "hiragana_katakana": "コート",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "white",
@@ -304,22 +340,22 @@ export const duolingoWords = [
         "kanji": "靴"
     },
     {
-        "english": "this (preposition)",
+        "english": "this [preposition]",
         "romanji": "kono",
         "hiragana_katakana": "この",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "cute",
         "romanji": "kawaii",
         "hiragana_katakana": "かわいい",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
-        "english": "that (preposition)",
+        "english": "that [preposition]",
         "romanji": "sono",
         "hiragana_katakana": "その",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "interesting/funny",
@@ -385,7 +421,7 @@ export const duolingoWords = [
         "english": "excuse me",
         "romanji": "sumimasen",
         "hiragana_katakana": "すみません",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "airport",
@@ -415,19 +451,19 @@ export const duolingoWords = [
         "english": "smartphone",
         "romanji": "sumaho",
         "hiragana_katakana": "スマホ",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
-        "english": "of (possessive pronoun)",
+        "english": "of [possessive pronoun]",
         "romanji": "no",
         "hiragana_katakana": "の",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "passport",
         "romanji": "passupooto",
         "hiragana_katakana": "パスポート",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "Tanaka",
@@ -451,7 +487,7 @@ export const duolingoWords = [
         "english": "welcome",
         "romanji": "yookoso",
         "hiragana_katakana": "ようこそ",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "I",
@@ -460,16 +496,16 @@ export const duolingoWords = [
         "kanji": "私"
     },
     {
-        "english": "also (instead of 'wa')",
+        "english": "also [instead of 'wa']",
         "romanji": "mo",
         "hiragana_katakana": "も",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "New York",
         "romanji": "Nyū Yōku",
         "hiragana_katakana": "ニューヨーク",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "Kyoto",
@@ -490,7 +526,7 @@ export const duolingoWords = [
         "kanji": "日本"
     },
     {
-        "english": "city",
+        "english": "city ",
         "romanji": "toshi",
         "hiragana_katakana": "とし",
         "kanji": "都市"
@@ -517,7 +553,7 @@ export const duolingoWords = [
         "english": "very",
         "romanji": "totemo",
         "hiragana_katakana": "とても",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "town",
@@ -547,7 +583,7 @@ export const duolingoWords = [
         "english": "engineer",
         "romanji": "enginea",
         "hiragana_katakana": "エンジニア",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "busy",
@@ -649,7 +685,7 @@ export const duolingoWords = [
         "english": "TV",
         "romanji": "terebi",
         "hiragana_katakana": "テレビ",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "movies",
@@ -661,19 +697,19 @@ export const duolingoWords = [
         "english": "often",
         "romanji": "yoku",
         "hiragana_katakana": "よく",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
-        "english": "through/with/for (wo)",
+        "english": "through/with/for [subject particle]",
         "romanji": "wo",
         "hiragana_katakana": "を",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "basketball",
         "romanji": "basukettobōru",
         "hiragana_katakana": "バスケットボール",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "sometimes",
@@ -685,19 +721,19 @@ export const duolingoWords = [
         "english": "soccer",
         "romanji": "sakkaa",
         "hiragana_katakana": "サッカー",
-        "kanji": "N/A"
+        "kanji": ""
     },
     {
         "english": "jazz",
         "romanji": "jazu",
         "hiragana_katakana": "ジャズ",
-        "kanji": "ジャズ"
+        "kanji": ""
     },
     {
         "english": "rock",
         "romanji": "rokku",
         "hiragana_katakana": "ロック",
-        "kanji": "ロック"
+        "kanji": ""
     },
     {
         "english": "music",
@@ -709,7 +745,7 @@ export const duolingoWords = [
         "english": "news",
         "romanji": "nyuusu",
         "hiragana_katakana": "ニュース",
-        "kanji": "ニュース"
+        "kanji": ""
     },
     {
         "english": "books",
@@ -724,10 +760,10 @@ export const duolingoWords = [
         "kanji": "雑誌"
     },
     {
-        "english": "he does/plays (sports)",
+        "english": "he plays [sports]",
         "romanji": "shimasu",
         "hiragana_katakana": "します",
-        "kanji": "します"
+        "kanji": ""
     },
     {
         "english": "baseball",
@@ -739,7 +775,7 @@ export const duolingoWords = [
         "english": "anime",
         "romanji": "anime",
         "hiragana_katakana": "アニメ",
-        "kanji": "アニメ"
+        "kanji": ""
     },
     {
         "english": "manga",
@@ -753,7 +789,6 @@ export const duolingoWords = [
         "hiragana_katakana": "ジェイポップ",
         "kanji": "Jポップ"
     },
-
     {
         "english": "sandwich",
         "romanji": "sandoicchi",
@@ -877,7 +912,7 @@ export const duolingoWords = [
     {
         "english": "he lives in Tokyo",
         "romanji": "Tōkyō ni sundeimasu",
-        "hiragana_katakana": "とうきょうに すんでいます",
+        "hiragana_katakana": "うきょうに すんでいます",
         "kanji": "東京に住んでいます"
     },
     {
@@ -911,7 +946,13 @@ export const duolingoWords = [
         "kanji": "出身はどこですか"
     },
     {
-        "english": "old (not new)",
+        "english": "How about Tokyo?",
+        "romanji": "Tōkyō wa dōdesu ka?",
+        "hiragana_katakana": "とうきょうはどうですか？",
+        "kanji": "東京はどうですか？"
+    },
+    {
+        "english": "old [not new]",
         "romanji": "furui",
         "hiragana_katakana": "ふるい",
         "kanji": "古い"
@@ -938,7 +979,7 @@ export const duolingoWords = [
         "english": "isn't it?",
         "romanji": "desu ne",
         "hiragana_katakana": "ですね",
-        "kanji": "ですね"
+        "kanji": ""
     },
     {
         "english": "t-shirt",
@@ -956,19 +997,19 @@ export const duolingoWords = [
         "english": "skirt",
         "romanji": "sukāto",
         "hiragana_katakana": "スカート",
-        "kanji": "スカート"
+        "kanji": ""
     },
     {
         "english": "dress",
         "romanji": "doresu",
         "hiragana_katakana": "ドレス",
-        "kanji": "ドレス"
+        "kanji": ""
     },
     {
         "english": "good, well",
         "romanji": "ii",
         "hiragana_katakana": "いい",
-        "kanji": "いい"
+        "kanji": ""
     },
     {
         "english": "blue",
@@ -980,6 +1021,66 @@ export const duolingoWords = [
         "english": "that/those over there",
         "romanji": "are",
         "hiragana_katakana": "あれ",
-        "kanji": "あれ"
+        "kanji": ""
+    },
+    {
+        "english": "hundred",
+        "romanji": "hyaku",
+        "hiragana_katakana": "ひゃく",
+        "kanji": ""
+    },
+    {
+        "english": "cheap, inexpensive",
+        "romanji": "yasui",
+        "hiragana_katakana": "やすい",
+        "kanji": "安い"
+    },
+    {
+        "english": "yen",
+        "romanji": "en",
+        "hiragana_katakana": "えん",
+        "kanji": "円"
+    },
+    {
+        "english": "tie, necktie, ties",
+        "romanji": "nekutai",
+        "hiragana_katakana": "ネクタイ",
+        "kanji": ""
+    },
+    {
+        "english": "how much",
+        "romanji": "ikura",
+        "hiragana_katakana": "いくら",
+        "kanji": "幾ら"
+    },
+    {
+        "english": "thousand",
+        "romanji": "sen",
+        "hiragana_katakana": "せん",
+        "kanji": "千"
+    },
+    {
+        "english": "store",
+        "romanji": "mise",
+        "hiragana_katakana": "みせ",
+        "kanji": "店"
+    },
+    {
+        "english": "black",
+        "romanji": "kuroi",
+        "hiragana_katakana": "くろい",
+        "kanji": "黒い"
+    },
+    {
+        "english": "expensive, big, tall",
+        "romanji": "takai",
+        "hiragana_katakana": "たかい",
+        "kanji": "高い"
+    },
+    {
+        "english": "jacket",
+        "romanji": "jaketto",
+        "hiragana_katakana": "ジャケット",
+        "kanji": ""
     }
 ]
